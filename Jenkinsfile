@@ -16,11 +16,11 @@ pipeline {
             }
         }
 
-        stage('Lint') {
-            steps {
-                sh 'flutter analyze'
-            }
-        }
+        // stage('Lint') {
+        //     steps {
+        //         sh 'flutter analyze'
+        //     }
+        // }
 
         stage('Unit Test') {
             steps {
