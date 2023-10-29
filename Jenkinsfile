@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        PATH = "/home/azureuser/.local/bin:/home/azureuser/.nvm/versions/node/v16.20.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/azureuser/flutter/bin:/home/azureuser/flutter/bin"
+    }
+
     stages {
         stage('Checkout') {
             steps {
