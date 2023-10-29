@@ -16,12 +16,6 @@ pipeline {
             }
         }
 
-        stage('Prepare') {
-            steps {
-                sh 'org.jenkinsci.plugins.durabletask.BourneShellScript.LAUNCH_DIAGNOSTICS=true'
-            }
-        }
-
         stage('Lint') {
             steps {
                 sh 'flutter analyze'
