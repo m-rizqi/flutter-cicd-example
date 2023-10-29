@@ -43,7 +43,7 @@ pipeline {
             emailext body: 'Something went wrong with the build.',
                 recipientProviders: [culprits(), developers()],
                 subject: 'Flutter Build Failed',
-                to: 'your-email@example.com'
+                to: 'muhammad.rizqi@divistant.com'
         }
     }
 }
