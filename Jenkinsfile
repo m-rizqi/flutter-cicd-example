@@ -12,6 +12,18 @@ pipeline {
             }
         }
 
+        stage('Prepare Flutter') {
+            steps {
+                script {
+                    // Change ownership of the Flutter directory
+                    sh "sudo chown -R $USER:$USER /home/azureuser/flutter"
+
+                    // Remove the problematic directory
+                    sh "sudo rm -rf /home/azureuser/flutter/version"
+                }
+            }
+        }
+
         stage('Lint') {
             steps {
                 sh 'flutter analyze'
