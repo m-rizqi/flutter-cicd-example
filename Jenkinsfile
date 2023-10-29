@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        PATH = "/home/azureuser/flutter/bin/flutter"
+        FLUTTER_PATH = "/home/azureuser/flutter/bin/flutter"
         KEYSTORE_PATH = '/keystore.jks'
         KEYSTORE_PASSWORD = 'password'
         KEY_ALIAS = 'alias'
@@ -13,6 +13,12 @@ pipeline {
         stage('Checkout') {
             steps {
                 checkout scm
+            }
+        }
+
+        stage('Prepare') {
+            steps {
+                sh 'org.jenkinsci.plugins.durabletask.BourneShellScript.LAUNCH_DIAGNOSTICS=true'
             }
         }
 
@@ -47,7 +53,7 @@ pipeline {
 
         stage('Build AAB') {
             steps {
-                sh "$PATH build appbundle --release --build-number=1 --build-name=1.0.0"
+                sh "$FLUTTER_PATH build appbundle --release --build-number=1 --build-name=1.0.0"
             }
             post {
                 success {
