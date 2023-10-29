@@ -2,25 +2,13 @@ pipeline {
     agent any
 
     environment {
-        PATH = "/home/azureuser/.local/bin:/home/azureuser/.nvm/versions/node/v16.20.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/azureuser/flutter/bin:$PATH"
+        PATH = "/home/azureuser/flutter/bin/flutter"
     }
 
     stages {
         stage('Checkout') {
             steps {
                 checkout scm
-            }
-        }
-
-        stage('Prepare Flutter') {
-            steps {
-                script {
-                    // Change ownership of the Flutter directory
-                    sh "sudo chown -R $USER:$USER /home/azureuser/flutter"
-
-                    // Remove the problematic directory
-                    sh "sudo rm -rf /home/azureuser/flutter/version"
-                }
             }
         }
 
