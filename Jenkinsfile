@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        PATH = "/home/azureuser/flutter/bin/flutter"
+        // PATH = "/home/azureuser/flutter/bin/flutter"
         KEYSTORE_PATH = '/keystore.jks'
         KEYSTORE_PASSWORD = 'password'
         KEY_ALIAS = 'alias'
